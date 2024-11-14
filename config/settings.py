@@ -146,6 +146,11 @@ DATABASES = {
     }
 }
 
+CSRF_TRUSTED_ORIGINS =['https://wish-job.netlify.app/', 'https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app/','http://localhost:3000']
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
