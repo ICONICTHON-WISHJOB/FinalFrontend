@@ -148,7 +148,7 @@ CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ['https://wish-job.netlify.app', 'https://wish-job.netlify.app']
-
+CORS_ALLOWED_ORIGINS=['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
