@@ -76,7 +76,7 @@ INSTALLED_APPS = [
     'drf_yasg',            # Swagger를 위한 drf-yasg 추가
     'rest_framework.authtoken',
     'users',         # DB
-
+    'jobfair',
 ]
 
 

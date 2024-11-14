@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import CustomUser
+from .models import CustomUser, Booth
 
 class SignupSerializer(serializers.ModelSerializer):
     experience = serializers.ListField(
@@ -32,3 +32,14 @@ class SignupSerializer(serializers.ModelSerializer):
             user.experience = experience
             user.save()
         return user
+
+
+class BoothSerializer(serializers.ModelSerializer):
+    boothId = serializers.IntegerField(source='booth_id')
+    boothNum = serializers.CharField(source='boothNum')
+    boothCate = serializers.CharField(source='boothCate')
+    boothName = serializers.CharField(source='boothName')
+
+    class Meta:
+        model = Booth
+        fields = ['boothId', 'boothNum', 'boothCate', 'boothName']
