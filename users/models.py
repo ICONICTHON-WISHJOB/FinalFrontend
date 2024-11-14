@@ -4,9 +4,15 @@ from django.core.validators import RegexValidator
 from django.conf import settings
 from django.contrib.auth.hashers import make_password, check_password
 from datetime import timedelta
+from datetime import date
 
 
 class CustomUser(AbstractUser):
+    @property
+    def age(self):
+        today = date.today()
+        return today.year - self.birth.year - ((today.month, today.day) < (self.birth.month, self.birth.day))
+
     email = models.EmailField(unique=True)
     phoneNum = models.CharField(
         max_length=11,
@@ -16,7 +22,7 @@ class CustomUser(AbstractUser):
     birth = models.DateField()
 
     full_name = models.CharField(max_length=255, default="")
-    age = models.PositiveIntegerField(null=True, blank=True)
+    # age = models.PositiveIntegerField(null=True, blank=True)
     school = models.CharField(max_length=255, null=True, blank=True)
     department = models.CharField(max_length=255, null=True, blank=True)
     admission_date = models.DateField(null=True, blank=True)
