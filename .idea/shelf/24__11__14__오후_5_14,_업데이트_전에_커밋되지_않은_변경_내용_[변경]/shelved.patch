@@ -1,0 +1,13 @@
+Index: job/__init__.py
+===================================================================
+diff --git a/job/__init__.py b/config/app.py
+rename from job/__init__.py
+rename to config/app.py
+--- a/job/__init__.py	(revision 89a2d6fa5e7ee49c16baf6cb860a5d5f7a566231)
++++ b/config/app.py	(date 1731570477278)
+@@ -1,0 +1,5 @@
++from django.apps import AppConfig
++
++class ConfigConfig(AppConfig):
++    default_auto_field = 'django.db.models.BigAutoField'
++    name = 'config'

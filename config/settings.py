@@ -64,6 +64,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
+AUTH_USER_MODEL = 'users.CustomUser' # user 정보 저장 모델
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,12 +74,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',              # 이거 추가함
-    'job',                      # 이거는 디비 생성테스트를 위한 추가
     'rest_framework',      # Django REST framework 추가
     'drf_yasg',            # Swagger를 위한 drf-yasg 추가
-
+    'rest_framework.authtoken',
+    'users',         # DB
 
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',            #이거도 추가
@@ -136,6 +145,11 @@ DATABASES = {
         'PORT': os.getenv('DATABASE_PORT'),
     }
 }
+
+CSRF_TRUSTED_ORIGINS =['https://wish-job.netlify.app/', 'https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app/','http://localhost:3000']
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+
 
 
 # Password validation
