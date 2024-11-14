@@ -43,10 +43,9 @@ class LoginView(APIView):
                 try:
                     user = CustomUser.objects.get(email=user_id)
                     if user.check_password(password):
-                        token, created = Token.objects.get_or_create(user=user)
                         return Response({
                             "message": "Login successful",
-                            "token": token.key,
+                            "user_id": user_id,
                             "user_type": 0
                         }, status=status.HTTP_200_OK)
                 except CustomUser.DoesNotExist:
