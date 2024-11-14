@@ -45,6 +45,7 @@
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="7d3e77f1-c656-4487-8e4b-8a8449f167d6" dataset="public.django_admin_log" active-filter-id="" />
     <filter-actions connection-id="7d3e77f1-c656-4487-8e4b-8a8449f167d6" dataset="public.django_migrations" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
