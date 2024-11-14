@@ -1,14 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.core.validators import RegexValidator
 
 class CustomUser(AbstractUser):
-    phoneNum = models.CharField(
-        max_length=11,
-        unique=True,
-        validators=[RegexValidator(regex=r'^01[0-9]{8,9}$', message='Enter a valid phone number')]
-    )
-    birth = models.DateField()
+    phone_number = models.CharField(max_length=15, unique=True)
+    birth_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.username

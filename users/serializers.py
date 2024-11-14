@@ -1,26 +1,19 @@
 from rest_framework import serializers
-from django.core.validators import RegexValidator
-from config.models import CustomUser
-from django.contrib.auth.hashers import make_password
+from .models import CustomUser
 
-class SignupSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    password = serializers.CharField(max_length=12, write_only=True)
-    phoneNum = serializers.CharField(
-        max_length=11,
-        validators=[RegexValidator(regex=r'^01[0-9]{8,9}$', message='Enter a valid phone number')]
-    )
-    name = serializers.CharField(max_length=10)
-    birth = serializers.DateField()
+class SignupSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'phone_number', 'birth_date', 'password')
 
     def create(self, validated_data):
-        user = CustomUser(
-            username=validated_data['email'],
+        user = CustomUser.objects.create_user(
+            username=validated_data['username'],
             email=validated_data['email'],
-            phoneNum=validated_data['phoneNum'],
-            birth=validated_data['birth'],
-            first_name=validated_data['name'],
-            password=make_password(validated_data['password'])
+            phone_number=validated_data['phone_number'],
+            birth_date=validated_data.get('birth_date'),
+            password=validated_data['password']
         )
-        user.save()
         return user

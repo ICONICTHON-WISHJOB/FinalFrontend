@@ -1,14 +1,17 @@
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.authtoken.models import Token
-from .serializers import SignupSerializer
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
-class SignupView(APIView):
-    def post(self, request):
-        serializer = SignupSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
-            token, created = Token.objects.get_or_create(user=user)
-            return Response({"token": token.key}, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+from rest_framework import generics
+from .serializers import UserSignupSerializer
+
+class CustomUser(AbstractUser):
+    phone_number = models.CharField(max_length=15, unique=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return self.username
+
+
+class UserSignupView(generics.CreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSignupSerializer
