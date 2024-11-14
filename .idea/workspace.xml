@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="users 성공2">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e/storage_v2/_src_/database/wishjob.ttW3UA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e/storage_v2/_src_/database/wishjob.ttW3UA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="users 성공">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
@@ -181,15 +182,7 @@
       <option name="project" value="LOCAL" />
       <updated>1731573941960</updated>
     </task>
-    <task id="LOCAL-00009" summary="users 성공2">
-      <option name="closed" value="true" />
-      <created>1731576773127</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1731576773127</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +208,6 @@
     <MESSAGE value="중간저장 4" />
     <MESSAGE value="스웨거 추가" />
     <MESSAGE value="users 성공" />
-    <MESSAGE value="users 성공2" />
-    <option name="LAST_COMMIT_MESSAGE" value="users 성공2" />
+    <option name="LAST_COMMIT_MESSAGE" value="users 성공" />
   </component>
 </project>
