@@ -3,6 +3,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 from django.conf import settings
 from django.contrib.auth.hashers import make_password, check_password
+from datetime import timedelta
 
 
 class CustomUser(AbstractUser):
@@ -64,12 +65,12 @@ class Booth(models.Model):
     boothCate = models.CharField(max_length=100, null=True)
     boothName = models.CharField(max_length=255, null=True)
 
-    queue = models.ManyToManyField(
-        CustomUser,
-        related_name='waiting_booths',
-        blank=True,
-        through='BoothQueue'
-    )
+    queue = models.ManyToManyField(CustomUser, related_name='booth_queue', blank=True)
+    current_consultation = models.IntegerField(null=True, blank=True)
+    wait_time = models.IntegerField(default=0)
+
+    def calculate_wait_time(self):
+        return self.queue.count() * 10
 
     past_participants = models.ManyToManyField(
         CustomUser,
