@@ -7,6 +7,12 @@ from datetime import timedelta
 from datetime import date
 
 
+class InterestCategory(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.name
+
 class CustomUser(AbstractUser):
     @property
     def age(self):
@@ -33,6 +39,10 @@ class CustomUser(AbstractUser):
     self_introduction = models.TextField(null=True, blank=True)
     companies_of_interest = models.TextField(null=True, blank=True)
 
+    reservation_status = models.JSONField(null=True, blank=True)  # 상담 기록을 JSON 형태로 저장
+
+    interest_categories = models.ManyToManyField(InterestCategory, blank=True, related_name="users")
+
     REQUIRED_FIELDS = ['phoneNum', 'birth', 'full_name']
 
     def save(self, *args, **kwargs):
@@ -49,7 +59,7 @@ class Company(models.Model):
     promotional_content = models.TextField()
     applicants = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='interested_companies', blank=True)
-
+    manager = models.TextField(default="")
     password = models.CharField(max_length=128)
 
     def set_password(self, raw_password):
