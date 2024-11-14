@@ -17,7 +17,7 @@ from django.conf.global_settings import STATICFILES_DIRS
 import environ
 import os
 from django.core.exceptions import ImproperlyConfigured
-from rest_framework.authtoken.views import obtain_auth_token
+# from rest_framework.authtoken.views import obtain_auth_token
 
 from dotenv import load_dotenv
 load_dotenv()
