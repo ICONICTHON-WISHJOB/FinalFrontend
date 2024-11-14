@@ -47,6 +47,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('jobfair/', include('jobfair.urls')),
     path('myPage/', include('myPage.urls')),
+    path('company/', include('company.urls')),
 
     path('api-token-auth/', obtain_auth_token),
 ]

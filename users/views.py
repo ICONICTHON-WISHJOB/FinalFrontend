@@ -33,6 +33,7 @@ class LoginView(APIView):
                     if company.check_password(password):
                         return Response({
                             "message": "Login successful",
+                            "company_id": company.company_id,
                             "user_type": 1
                         }, status=status.HTTP_200_OK)
                 except Company.DoesNotExist:

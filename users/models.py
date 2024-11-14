@@ -49,7 +49,7 @@ class Company(models.Model):
     promotional_content = models.TextField()
     applicants = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='interested_companies', blank=True)
-
+    manager = models.TextField(default="")
     password = models.CharField(max_length=128)
 
     def set_password(self, raw_password):
