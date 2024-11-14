@@ -75,8 +75,8 @@ INSTALLED_APPS = [
     'job',                      # 이거는 디비 생성테스트를 위한 추가
     'rest_framework',      # Django REST framework 추가
     'drf_yasg',            # Swagger를 위한 drf-yasg 추가
-    'rest_framework.authtoken'
-
+    'rest_framework.authtoken',
+    'config',
 ]
 
 REST_FRAMEWORK = {

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.core.validators import RegexValidator
-from .models import CustomUser
+from config.models import CustomUser
 from django.contrib.auth.hashers import make_password
 
 class SignupSerializer(serializers.Serializer):
