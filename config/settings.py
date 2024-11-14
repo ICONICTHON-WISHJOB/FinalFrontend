@@ -56,8 +56,7 @@ DEBUG = True            # 개발환경에서는 이게 더 나은선택
 # DEBUG = False         # 배포환경에서는 올바른 선택,
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app/', 'https://wish-job.netlify.app', 'localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app', 'https://wish-job.netlify.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
