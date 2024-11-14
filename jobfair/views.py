@@ -38,14 +38,6 @@ class CheckQueuePositionView(APIView):
         except BoothQueue.DoesNotExist:
             return Response({"error": "You are not in the queue for this booth"}, status=status.HTTP_404_NOT_FOUND)
 
-class PastParticipationView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        user = request.user
-        past_booths = user.participated_booths.all()
-        booth_list = [{"booth_id": booth.id, "company_name": booth.company.name, "day": booth.day} for booth in past_booths]
-        return Response({"past_participation": booth_list}, status=status.HTTP_200_OK)
 
 class BoothListView(APIView):
     def get(self, request, day, floor):

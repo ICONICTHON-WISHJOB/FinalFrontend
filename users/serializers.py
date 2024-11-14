@@ -40,11 +40,12 @@ class SignupSerializer(serializers.ModelSerializer):
 
 
 class BoothSerializer(serializers.ModelSerializer):
-    boothId = serializers.IntegerField(source='booth_id')
-    boothNum = serializers.CharField(source='boothNum')
-    boothCate = serializers.CharField(source='boothCate')
-    boothName = serializers.CharField(source='boothName')
+    boothId = serializers.IntegerField(source="booth_id")
+    boothNum = serializers.CharField()
+    boothCate = serializers.CharField()
+    boothName = serializers.CharField()
 
     class Meta:
         model = Booth
-        fields = ['boothId', 'boothNum', 'boothCate', 'boothName']
+        fields = ["boothId", "boothNum", "boothCate", "boothName"]
+

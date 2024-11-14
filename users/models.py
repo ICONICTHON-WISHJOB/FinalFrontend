@@ -57,9 +57,9 @@ class Company(models.Model):
 
 class Booth(models.Model):
     booth_id = models.AutoField(primary_key=True)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='booths')  # Company operating the booth
-    day = models.DateField()
-    floor = models.CharField(max_length=50, null=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='booths')
+    day = models.IntegerField(default=0)
+    floor = models.IntegerField(default=0)
     boothNum = models.CharField(max_length=10, unique=True, null=True)
     boothCate = models.CharField(max_length=100, null=True)
     boothName = models.CharField(max_length=255, null=True)
