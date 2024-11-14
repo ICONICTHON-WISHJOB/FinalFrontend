@@ -17,6 +17,7 @@ from django.conf.global_settings import STATICFILES_DIRS
 import environ
 import os
 from django.core.exceptions import ImproperlyConfigured
+from rest_framework.authtoken.views import obtain_auth_token
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -76,6 +77,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'users',         # DB
     'jobfair',
+
+
+
 ]
 
 
@@ -149,6 +153,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ['https://wish-job.netlify.app', 'https://wish-job.netlify.app']
 CORS_ALLOWED_ORIGINS=['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app']
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
