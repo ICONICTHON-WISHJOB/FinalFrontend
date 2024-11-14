@@ -143,7 +143,7 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS =['port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app','https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app', 'https://wish-job.netlify.app', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS =['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app', 'https://wish-job.netlify.app', 'localhost', '127.0.0.1']
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
