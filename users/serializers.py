@@ -9,7 +9,7 @@ class LoginRequestSerializer(serializers.Serializer):
 class SignupSerializer(serializers.ModelSerializer):
     experience = serializers.ListField(
         child=serializers.DictField(child=serializers.CharField(), required=True),
-        required=True,
+        required=False,
         allow_empty=True
     )
 
