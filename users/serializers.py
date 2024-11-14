@@ -4,8 +4,8 @@ from .models import CustomUser, Booth
 
 class SignupSerializer(serializers.ModelSerializer):
     experience = serializers.ListField(
-        child=serializers.DictField(child=serializers.CharField(), required=False),
-        required=False,
+        child=serializers.DictField(child=serializers.CharField(), required=True),
+        required=True,
         allow_empty=True
     )
 

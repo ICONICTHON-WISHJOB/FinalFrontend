@@ -13,7 +13,8 @@ class CustomUser(AbstractUser):
         validators=[RegexValidator(regex=r'^01[0-9]{8,9}$', message='Enter a valid phone number')]
     )
     birth = models.DateField()
-    full_name = models.CharField(max_length=255, null=True)
+
+    full_name = models.CharField(max_length=255, default="")
     age = models.PositiveIntegerField(null=True, blank=True)
     school = models.CharField(max_length=255, null=True, blank=True)
     department = models.CharField(max_length=255, null=True, blank=True)
