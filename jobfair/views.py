@@ -81,6 +81,7 @@ class BoothApplyView(APIView):
 
         booth.queue.add(user)
         booth.wait_time = booth.calculate_wait_time()
+        booth.save()
 
         return Response({
             "boothName": booth.boothName,
@@ -91,6 +92,8 @@ class BoothPossibleNowView(APIView):
     def get(self, request):
         # Filter booths where wait_time is less than 10
         booths = Booth.objects.filter(wait_time__lt=10)
+        for i in booths:
+            print(i)
 
         # Format the response as requested
         booth_data = [
