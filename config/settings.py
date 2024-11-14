@@ -145,10 +145,10 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS =['https://wish-job.netlify.app', 'https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app','http://localhost:3000']
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = ['https://wish-job.netlify.app', 'https://wish-job.netlify.app']
 
 
 # Password validation
