@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from users.models import CustomUser, Company, Booth, BoothQueue
+from rest_framework.response import Response
+
 
 class MyPageView(APIView):
     # permission_classes = [IsAuthenticated]
@@ -51,3 +53,17 @@ class MyPageView(APIView):
             "participated_booths": participated_booths,
         }
         return JsonResponse(user_data)
+
+
+class MyPageInterestView(APIView):
+    # permission_classes = [IsAuthenticated]
+
+    def get(self, request, userId):
+        # 사용자를 가져옵니다.
+        user = get_object_or_404(CustomUser, id=userId)
+
+        # companies_of_interest 필드 값만 반환합니다.
+        response_data = {
+            "companies_of_interest": user.companies_of_interest
+        }
+        return JsonResponse(response_data)
