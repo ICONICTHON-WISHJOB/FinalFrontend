@@ -5,6 +5,8 @@ from rest_framework import status
 from users.models import CustomUser, Company, Booth, BoothQueue
 from users.serializers import BoothSerializer
 from rest_framework.permissions import IsAuthenticated
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class ReserveBoothView(APIView):
     permission_classes = [IsAuthenticated]
