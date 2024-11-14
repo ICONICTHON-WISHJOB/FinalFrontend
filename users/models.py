@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     )
     birth = models.DateField()
 
-    full_name = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255, null=True)
     age = models.PositiveIntegerField(null=True, blank=True)
     school = models.CharField(max_length=255, null=True, blank=True)
     department = models.CharField(max_length=255, null=True, blank=True)
