@@ -13,7 +13,6 @@ class CustomUser(AbstractUser):
         validators=[RegexValidator(regex=r'^01[0-9]{8,9}$', message='Enter a valid phone number')]
     )
     birth = models.DateField()
-
     full_name = models.CharField(max_length=255, null=True)
     age = models.PositiveIntegerField(null=True, blank=True)
     school = models.CharField(max_length=255, null=True, blank=True)
@@ -51,9 +50,13 @@ class Company(models.Model):
         return f"{self.name} ({self.company_id})"
 
 class Booth(models.Model):
-    booth_id = models.AutoField(primary_key=True)  # Unique ID for each booth
+    booth_id = models.AutoField(primary_key=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='booths')  # Company operating the booth
     day = models.DateField()
+    floor = models.CharField(max_length=50, null=True)
+    boothNum = models.CharField(max_length=10, unique=True, null=True)
+    boothCate = models.CharField(max_length=100, null=True)
+    boothName = models.CharField(max_length=255, null=True)
 
     queue = models.ManyToManyField(
         CustomUser,
