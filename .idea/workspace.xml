@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="스웨거 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e/storage_v2/_src_/database/wishjob.ttW3UA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e/storage_v2/_src_/database/wishjob.ttW3UA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
+    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="users 성공">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731566509486</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="users 성공">
+      <option name="closed" value="true" />
+      <created>1731573941960</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731573941960</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +201,7 @@
     <MESSAGE value="중간저장 2" />
     <MESSAGE value="중간저장 4" />
     <MESSAGE value="스웨거 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="스웨거 추가" />
+    <MESSAGE value="users 성공" />
+    <option name="LAST_COMMIT_MESSAGE" value="users 성공" />
   </component>
 </project>
