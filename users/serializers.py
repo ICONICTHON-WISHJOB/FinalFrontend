@@ -2,6 +2,10 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from .models import CustomUser, Booth
 
+class LoginRequestSerializer(serializers.Serializer):
+    user_id = serializers.EmailField()
+    password = serializers.CharField()
+
 class SignupSerializer(serializers.ModelSerializer):
     experience = serializers.ListField(
         child=serializers.DictField(child=serializers.CharField(), required=True),
@@ -28,6 +32,7 @@ class SignupSerializer(serializers.ModelSerializer):
         validated_data['password'] = make_password(validated_data['password'])
         experience = validated_data.pop('experience', [])
         user = super().create(validated_data)
+
         if experience:
             user.experience = experience
             user.save()

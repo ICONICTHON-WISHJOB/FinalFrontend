@@ -28,12 +28,17 @@ class CustomUser(AbstractUser):
 
     REQUIRED_FIELDS = ['phoneNum', 'birth', 'full_name']
 
+    def save(self, *args, **kwargs):
+        if not self.username:
+            self.username = self.full_name  # Set username to full_name
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.username
 
 class Company(models.Model):
     name = models.CharField(max_length=255)
-    company_id = models.CharField(max_length=50, unique=True)  # Unique ID for each company
+    company_id = models.EmailField(max_length=50, unique=True)  # Unique ID for each company
     promotional_content = models.TextField()
     applicants = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='interested_companies', blank=True)
