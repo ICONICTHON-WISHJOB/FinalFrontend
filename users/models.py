@@ -37,7 +37,7 @@ class CustomUser(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.username:
-            self.username = self.full_name  # Set username to full_name
+            self.username = self.email  # Set username to full_name
         super().save(*args, **kwargs)
 
     def __str__(self):
