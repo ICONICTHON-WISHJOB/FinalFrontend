@@ -52,8 +52,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True            # 개발환경에서는 이게 더 나은선택
+# DEBUG = False         # 배포환경에서는 올바른 선택,
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['*']
@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',              # 이거 추가함
+    'job',                      # 이거는 디비 생성테스트를 위한 추가
 
 
 ]

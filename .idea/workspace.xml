@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="이거 되나? 대충 서버 배포3" />
+    <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="대충 서버 배포 1">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9f159b91-204f-4f26-88be-8cdbaa22047e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +106,7 @@
       <updated>1731505408382</updated>
       <workItem from="1731505409441" duration="2000" />
       <workItem from="1731505458723" duration="5942000" />
-      <workItem from="1731545351241" duration="610000" />
+      <workItem from="1731545351241" duration="5957000" />
     </task>
     <task id="LOCAL-00001" summary="이거 되나? 대충 서버 배포1">
       <option name="closed" value="true" />
@@ -127,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731545870018</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="대충 서버 배포 1">
+      <option name="closed" value="true" />
+      <created>1731546136846</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731546136846</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +161,7 @@
     <MESSAGE value="이거 되나? 대충 서버 배포1" />
     <MESSAGE value="이거 되나? 대충 서버 배포2" />
     <MESSAGE value="이거 되나? 대충 서버 배포3" />
-    <option name="LAST_COMMIT_MESSAGE" value="이거 되나? 대충 서버 배포3" />
+    <MESSAGE value="대충 서버 배포 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="대충 서버 배포 1" />
   </component>
 </project>
