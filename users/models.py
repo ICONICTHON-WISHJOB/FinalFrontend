@@ -47,7 +47,7 @@ class CustomUser(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.username:
-            self.username = self.full_name  # Set username to full_name
+            self.username = self.email  # Set username to full_name
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -59,7 +59,7 @@ class Company(models.Model):
     promotional_content = models.TextField()
     applicants = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='interested_companies', blank=True)
-
+    manager = models.TextField(default="")
     password = models.CharField(max_length=128)
 
     def set_password(self, raw_password):
