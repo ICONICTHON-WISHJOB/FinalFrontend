@@ -83,6 +83,19 @@ class BoothApplyView(APIView):
         booth.wait_time = booth.calculate_wait_time()
         booth.save()
 
+        new_reservation = {
+            "boothid": booth.booth_id,
+            "boothName": booth.boothName,
+            "doneType": 0,  # 0: 예정
+            "position_in_queue": booth.queue.count()  # 현재 대기 순서
+        }
+
+        if user.reservation_status is None:
+            user.reservation_status = []
+
+        user.reservation_status.append(new_reservation)
+        user.save()
+
         return Response({
             "boothName": booth.boothName,
             "waitTime": booth.wait_time
