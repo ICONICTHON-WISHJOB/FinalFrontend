@@ -56,7 +56,7 @@ DEBUG = True            # 개발환경에서는 이게 더 나은선택
 # DEBUG = False         # 배포환경에서는 올바른 선택,
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app/', 'https://wish-job.netlify.app', 'localhost', '127.0.0.1']
 
 
 
@@ -144,7 +144,7 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS =['https://wish-job.netlify.app', 'https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app','http://localhost:3000']
+CSRF_TRUSTED_ORIGINS =['https://wish-job.netlify.app', 'https://port-0-backend-m3ffo7y635cd1bb2.sel4.cloudtype.app','http://localhost', 'http://127.0.0.1']
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
