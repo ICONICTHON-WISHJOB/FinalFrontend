@@ -64,6 +64,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
+AUTH_USER_MODEL = 'users.CustomUser' # user 정보 저장 모델
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,10 +77,10 @@ INSTALLED_APPS = [
     'rest_framework',      # Django REST framework 추가
     'drf_yasg',            # Swagger를 위한 drf-yasg 추가
     'rest_framework.authtoken',
-    'config',
     'users',         # DB
 
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -99,8 +101,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
-AUTH_USER_MODEL = 'users.CustomUser'
 
 TEMPLATES = [
     {
