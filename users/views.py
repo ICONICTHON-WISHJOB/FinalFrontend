@@ -44,6 +44,7 @@ class LoginView(APIView):
                 try:
                     user = CustomUser.objects.get(email=user_id)
                     if user.check_password(password):
+                        request.session['email'] = user_id
                         return Response({
                             "message": "Login successful",
                             "user_id": user_id,

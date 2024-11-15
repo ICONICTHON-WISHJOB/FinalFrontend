@@ -230,3 +230,34 @@ class ConsultDeleteView(APIView):
             return Response({
                 "message": "User removed from queue successfully"
             }, status=status.HTTP_200_OK)
+
+class CompletedConsultationsListView(APIView):
+    def post(self, request):
+        # Step 1: Retrieve the company_id from the session
+        company_id = request.session['id']
+        print(request.session)
+        if not company_id:
+            return Response({"error": "Company ID not found in session"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Step 2: Find the company based on company_id
+        try:
+            company = Company.objects.get(company_id=company_id)
+        except Company.DoesNotExist:
+            return Response({"error": "Company not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Step 3: Retrieve all completed consultations (CustomUser) for the company
+        completed_users = company.completed_consultations.all()
+        users_data = [
+            {
+                "user_id": user.email,
+                "full_name": user.full_name
+            }
+            for user in completed_users
+        ]
+
+        response_data = {
+            "users": users_data,
+            "totalCnt": len(users_data)
+        }
+
+        return Response(response_data, status=status.HTTP_200_OK)
