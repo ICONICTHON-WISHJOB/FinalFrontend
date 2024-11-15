@@ -7,9 +7,9 @@ from users.models import CustomUser
 from .serializers import CustomUserSerializer
 
 class CustomUserDetailView(APIView):
-    def get(self, request, user_id):
+    def get(self, request, email):
         try:
-            user = CustomUser.objects.get(id=user_id)
+            user = CustomUser.objects.get(email=email)
             serializer = CustomUserSerializer(user)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except CustomUser.DoesNotExist:

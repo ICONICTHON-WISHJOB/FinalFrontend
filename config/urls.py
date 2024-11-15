@@ -54,7 +54,7 @@ urlpatterns = [
 
     path('api-token-auth/', obtain_auth_token),
 
-    path('user/json/<int:user_id>/', CustomUserDetailView.as_view(), name='user_json'),
+    path('user/json/<str:email>/', CustomUserDetailView.as_view(), name='user_json'),
 
 ]
 
