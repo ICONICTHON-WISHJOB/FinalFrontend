@@ -108,3 +108,4 @@ class BoothQueue(models.Model):
 
     def __str__(self):
         return f"User {self.user.full_name} in queue for Booth {self.booth.booth_id} at position {self.position}"
+

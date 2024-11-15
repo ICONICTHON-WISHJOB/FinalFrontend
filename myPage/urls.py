@@ -8,5 +8,4 @@ urlpatterns = [
     path('myPage/api/myPage/interest/new', views.UpdateInterestCategoriesView.as_view(), name='my_page_interest'),
     path('api/myPage/reservationList/remove/<str:userId>/<str:boothID>/', views.RemoveReservationView.as_view(), name='my_page_interest'),
     path('api/myPage/resume/<str:userId>/', views.ResumeView.as_view(), name='my_page_interest'),
-
 ]
