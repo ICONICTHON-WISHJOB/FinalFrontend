@@ -31,6 +31,7 @@ class LoginView(APIView):
                 try:
                     company = Company.objects.get(company_id=user_id)  # Assuming `email` is used as identifier
                     if company.check_password(password):
+                        request.session['id'] = company.company_id
                         return Response({
                             "message": "Login successful",
                             "company_id": company.company_id,

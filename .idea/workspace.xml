@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="36b1574a-6781-4f11-bf0a-2312e711e1ab" name="변경" comment="/api/myPage/:userId 완">
-      <change beforePath="$PROJECT_DIR$/myPage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myPage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myPage/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/company/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="feature_company" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature__company",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "/Users/jaehyuk/Desktop/projects/WishJob",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

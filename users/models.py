@@ -62,6 +62,12 @@ class Company(models.Model):
     manager = models.TextField(default="")
     password = models.CharField(max_length=128)
 
+    completed_consultations = models.ManyToManyField(
+        CustomUser,
+        related_name='consulted_companies',
+        blank=True
+    )
+
     def set_password(self, raw_password):
         self.password = make_password(raw_password)
         self.save()
@@ -87,12 +93,6 @@ class Booth(models.Model):
 
     def calculate_wait_time(self):
         return self.queue.count() * 10
-
-    past_participants = models.ManyToManyField(
-        CustomUser,
-        related_name='participated_booths',
-        blank=True
-    )
 
     def __str__(self):
         return f"Booth {self.booth_id} - {self.company.name} on {self.day}"
