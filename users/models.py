@@ -37,6 +37,7 @@ class CustomUser(AbstractUser):
     experience = models.JSONField(null=True,blank=True)
 
     self_introduction = models.TextField(null=True, blank=True)
+    recommend = models.CharField(default="")
     companies_of_interest = models.TextField(null=True, blank=True)
 
     reservation_status = models.JSONField(null=True, blank=True)  # 상담 기록을 JSON 형태로 저장
