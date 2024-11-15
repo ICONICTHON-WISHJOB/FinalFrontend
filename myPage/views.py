@@ -1,12 +1,18 @@
-from django.http import JsonResponse
+
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+
 from users.models import CustomUser, Company, Booth, BoothQueue, InterestCategory
 from rest_framework.response import Response
 from rest_framework import status
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+
+from django.http import JsonResponse
+
+
+
+
 
 
 class MyPageView(APIView):
@@ -23,18 +29,18 @@ class MyPageView(APIView):
         ]
 
         # 참여했던 부스 가져오기
-        participated_booths = [
-            {
-                "booth_id": booth.booth_id,
-                "company_name": booth.company.name,
-                "day": booth.day,
-                "floor": booth.floor,
-                "boothNum": booth.boothNum,
-                "boothCate": booth.boothCate,
-                "boothName": booth.boothName,
-            }
-            for booth in user.participated_booths.all()
-        ]
+        # participated_booths = [
+        #     {
+        #         "booth_id": booth.booth_id,
+        #         "company_name": booth.company.name,
+        #         "day": booth.day,
+        #         "floor": booth.floor,
+        #         "boothNum": booth.boothNum,
+        #         "boothCate": booth.boothCate,
+        #         "boothName": booth.boothName,
+        #     }
+        #     for booth in user.participated_booths.all()
+        # ]
 
         # 사용자 정보를 JSON 형식으로 반환
         user_data = {
@@ -53,7 +59,7 @@ class MyPageView(APIView):
             "self_introduction": user.self_introduction,
             "companies_of_interest": user.companies_of_interest,
             "interested_companies": interested_companies,
-            "participated_booths": participated_booths,
+            # "participated_booths": participated_booths,
         }
         return JsonResponse(user_data)
 

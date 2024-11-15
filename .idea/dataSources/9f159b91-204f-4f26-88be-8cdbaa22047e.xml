@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1074</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1104</IntrospectionStateNumber>
       <ServerVersion>16.4</ServerVersion>
       <StartupTime>1731615268</StartupTime>
       <TimeZones>true ACDT
@@ -815,7 +815,7 @@ false posixrules
 13255||10|C|G
 13255||-9223372036854775808|U|G
 13255||10|U|G</Grants>
-      <IntrospectionStateNumber>1074</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1104</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>wishjob</OwnerName>
     </database>
@@ -4236,8 +4236,8 @@ false posixrules
     <schema id="264" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1074</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-14.22:50:16</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1104</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-15.00:21:33</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4306,15 +4306,7 @@ false posixrules
       <StoredType>integer|0s</StoredType>
       <OwnerName>wishjob</OwnerName>
     </sequence>
-    <sequence id="273" parent="264" name="users_booth_past_participants_id_seq">
-      <ObjectId>16931</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>935</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <OwnerName>wishjob</OwnerName>
-    </sequence>
-    <sequence id="274" parent="264" name="users_booth_queue_id_seq">
+    <sequence id="273" parent="264" name="users_booth_queue_id_seq">
       <ObjectId>17035</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4322,7 +4314,7 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>wishjob</OwnerName>
     </sequence>
-    <sequence id="275" parent="264" name="users_boothqueue_id_seq">
+    <sequence id="274" parent="264" name="users_boothqueue_id_seq">
       <ObjectId>16937</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4330,11 +4322,19 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>wishjob</OwnerName>
     </sequence>
-    <sequence id="276" parent="264" name="users_company_applicants_id_seq">
+    <sequence id="275" parent="264" name="users_company_applicants_id_seq">
       <ObjectId>16954</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>935</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <OwnerName>wishjob</OwnerName>
+    </sequence>
+    <sequence id="276" parent="264" name="users_company_completed_consultations_id_seq">
+      <ObjectId>17086</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>1094</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>wishjob</OwnerName>
     </sequence>
@@ -4446,33 +4446,33 @@ false posixrules
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>wishjob</OwnerName>
     </table>
-    <table id="293" parent="264" name="users_booth_past_participants">
-      <ObjectId>16932</ObjectId>
-      <StateNumber>935</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>wishjob</OwnerName>
-    </table>
-    <table id="294" parent="264" name="users_booth_queue">
+    <table id="293" parent="264" name="users_booth_queue">
       <ObjectId>17036</ObjectId>
       <StateNumber>1006</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>wishjob</OwnerName>
     </table>
-    <table id="295" parent="264" name="users_boothqueue">
+    <table id="294" parent="264" name="users_boothqueue">
       <ObjectId>16938</ObjectId>
       <StateNumber>935</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>wishjob</OwnerName>
     </table>
-    <table id="296" parent="264" name="users_company">
+    <table id="295" parent="264" name="users_company">
       <ObjectId>16945</ObjectId>
       <StateNumber>1042</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>wishjob</OwnerName>
     </table>
-    <table id="297" parent="264" name="users_company_applicants">
+    <table id="296" parent="264" name="users_company_applicants">
       <ObjectId>16955</ObjectId>
       <StateNumber>935</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>wishjob</OwnerName>
+    </table>
+    <table id="297" parent="264" name="users_company_completed_consultations">
+      <ObjectId>17087</ObjectId>
+      <StateNumber>1094</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>wishjob</OwnerName>
     </table>
@@ -5244,108 +5244,26 @@ pg_catalog</CollationParentNames>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>935</StateNumber>
+      <StateNumber>1006</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>16931</SequenceId>
+      <SequenceId>17035</SequenceId>
       <TypeId>20</TypeId>
     </column>
     <column id="398" parent="293" name="booth_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>935</StateNumber>
+      <StateNumber>1006</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="399" parent="293" name="customuser_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>935</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <foreign-key id="400" parent="293" name="users_booth_past_par_booth_id_63388a10_fk_users_boo">
-      <ColNames>booth_id</ColNames>
-      <Deferrable>1</Deferrable>
-      <InitiallyDeferred>1</InitiallyDeferred>
-      <ObjectId>16967</ObjectId>
-      <StateNumber>935</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16926</RefTableId>
-    </foreign-key>
-    <foreign-key id="401" parent="293" name="users_booth_past_par_customuser_id_c69e2a0d_fk_users_cus">
-      <ColNames>customuser_id</ColNames>
-      <Deferrable>1</Deferrable>
-      <InitiallyDeferred>1</InitiallyDeferred>
-      <ObjectId>16972</ObjectId>
-      <StateNumber>935</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16824</RefTableId>
-    </foreign-key>
-    <index id="402" parent="293" name="users_booth_past_participants_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16935</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>935</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="403" parent="293" name="users_booth_past_partici_booth_id_customuser_id_cf8a47ee_uniq">
-      <ColNames>booth_id
-customuser_id</ColNames>
-      <ObjectId>16965</ObjectId>
-      <StateNumber>935</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="404" parent="293" name="users_booth_past_participants_booth_id_63388a10">
-      <ColNames>booth_id</ColNames>
-      <ObjectId>16977</ObjectId>
-      <StateNumber>935</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="405" parent="293" name="users_booth_past_participants_customuser_id_c69e2a0d">
-      <ColNames>customuser_id</ColNames>
-      <ObjectId>16978</ObjectId>
-      <StateNumber>935</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="406" parent="293" name="users_booth_past_participants_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16936</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>935</StateNumber>
-      <UnderlyingIndexId>16935</UnderlyingIndexId>
-    </key>
-    <key id="407" parent="293" name="users_booth_past_partici_booth_id_customuser_id_cf8a47ee_uniq">
-      <ObjectId>16966</ObjectId>
-      <StateNumber>935</StateNumber>
-      <UnderlyingIndexId>16965</UnderlyingIndexId>
-    </key>
-    <column id="408" parent="294" name="id">
-      <IdentityKind>by-default</IdentityKind>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1006</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <SequenceId>17035</SequenceId>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="409" parent="294" name="booth_id">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1006</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="410" parent="294" name="customuser_id">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
       <StateNumber>1006</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="411" parent="294" name="users_booth_queue_booth_id_35ec6de1_fk_users_booth_booth_id">
+    <foreign-key id="400" parent="293" name="users_booth_queue_booth_id_35ec6de1_fk_users_booth_booth_id">
       <ColNames>booth_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5354,7 +5272,7 @@ customuser_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <foreign-key id="412" parent="294" name="users_booth_queue_customuser_id_d96a6e4a_fk_users_customuser_id">
+    <foreign-key id="401" parent="293" name="users_booth_queue_customuser_id_d96a6e4a_fk_users_customuser_id">
       <ColNames>customuser_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5363,7 +5281,7 @@ customuser_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16824</RefTableId>
     </foreign-key>
-    <index id="413" parent="294" name="users_booth_queue_pkey">
+    <index id="402" parent="293" name="users_booth_queue_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17039</ObjectId>
@@ -5372,7 +5290,7 @@ customuser_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="414" parent="294" name="users_booth_queue_booth_id_customuser_id_0c62e148_uniq">
+    <index id="403" parent="293" name="users_booth_queue_booth_id_customuser_id_0c62e148_uniq">
       <ColNames>booth_id
 customuser_id</ColNames>
       <ObjectId>17041</ObjectId>
@@ -5380,37 +5298,37 @@ customuser_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="415" parent="294" name="users_booth_queue_booth_id_35ec6de1">
+    <index id="404" parent="293" name="users_booth_queue_booth_id_35ec6de1">
       <ColNames>booth_id</ColNames>
       <ObjectId>17053</ObjectId>
       <StateNumber>1006</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="416" parent="294" name="users_booth_queue_customuser_id_d96a6e4a">
+    <index id="405" parent="293" name="users_booth_queue_customuser_id_d96a6e4a">
       <ColNames>customuser_id</ColNames>
       <ObjectId>17054</ObjectId>
       <StateNumber>1006</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="417" parent="294" name="users_booth_queue_pkey">
+    <key id="406" parent="293" name="users_booth_queue_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17040</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1006</StateNumber>
       <UnderlyingIndexId>17039</UnderlyingIndexId>
     </key>
-    <key id="418" parent="294" name="users_booth_queue_booth_id_customuser_id_0c62e148_uniq">
+    <key id="407" parent="293" name="users_booth_queue_booth_id_customuser_id_0c62e148_uniq">
       <ObjectId>17042</ObjectId>
       <StateNumber>1006</StateNumber>
       <UnderlyingIndexId>17041</UnderlyingIndexId>
     </key>
-    <check id="419" parent="295" name="users_boothqueue_position_check">
+    <check id="408" parent="294" name="users_boothqueue_position_check">
       <ColNames>position</ColNames>
       <ObjectId>16941</ObjectId>
       <Predicate>&quot;position&quot; &gt;= 0</Predicate>
       <StateNumber>935</StateNumber>
     </check>
-    <column id="420" parent="295" name="id">
+    <column id="409" parent="294" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5419,28 +5337,28 @@ customuser_id</ColNames>
       <SequenceId>16937</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="421" parent="295" name="position">
+    <column id="410" parent="294" name="position">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>935</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="422" parent="295" name="booth_id">
+    <column id="411" parent="294" name="booth_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>935</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="423" parent="295" name="user_id">
+    <column id="412" parent="294" name="user_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>935</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="424" parent="295" name="users_boothqueue_booth_id_d73188ab_fk_users_booth_booth_id">
+    <foreign-key id="413" parent="294" name="users_boothqueue_booth_id_d73188ab_fk_users_booth_booth_id">
       <ColNames>booth_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5449,7 +5367,7 @@ customuser_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16926</RefTableId>
     </foreign-key>
-    <foreign-key id="425" parent="295" name="users_boothqueue_user_id_a39ce540_fk_users_customuser_id">
+    <foreign-key id="414" parent="294" name="users_boothqueue_user_id_a39ce540_fk_users_customuser_id">
       <ColNames>user_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5458,7 +5376,7 @@ customuser_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16824</RefTableId>
     </foreign-key>
-    <index id="426" parent="295" name="users_boothqueue_pkey">
+    <index id="415" parent="294" name="users_boothqueue_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16942</ObjectId>
@@ -5467,7 +5385,7 @@ customuser_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="427" parent="295" name="users_boothqueue_booth_id_user_id_19d0d51b_uniq">
+    <index id="416" parent="294" name="users_boothqueue_booth_id_user_id_19d0d51b_uniq">
       <ColNames>booth_id
 user_id</ColNames>
       <ObjectId>16979</ObjectId>
@@ -5475,31 +5393,31 @@ user_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="428" parent="295" name="users_boothqueue_booth_id_d73188ab">
+    <index id="417" parent="294" name="users_boothqueue_booth_id_d73188ab">
       <ColNames>booth_id</ColNames>
       <ObjectId>16991</ObjectId>
       <StateNumber>935</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="429" parent="295" name="users_boothqueue_user_id_a39ce540">
+    <index id="418" parent="294" name="users_boothqueue_user_id_a39ce540">
       <ColNames>user_id</ColNames>
       <ObjectId>16992</ObjectId>
       <StateNumber>935</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="430" parent="295" name="users_boothqueue_pkey">
+    <key id="419" parent="294" name="users_boothqueue_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16943</ObjectId>
       <Primary>1</Primary>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16942</UnderlyingIndexId>
     </key>
-    <key id="431" parent="295" name="users_boothqueue_booth_id_user_id_19d0d51b_uniq">
+    <key id="420" parent="294" name="users_boothqueue_booth_id_user_id_19d0d51b_uniq">
       <ObjectId>16980</ObjectId>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16979</UnderlyingIndexId>
     </key>
-    <column id="432" parent="296" name="id">
+    <column id="421" parent="295" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5508,42 +5426,42 @@ user_id</ColNames>
       <SequenceId>16944</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="433" parent="296" name="name">
+    <column id="422" parent="295" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>935</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="434" parent="296" name="company_id">
+    <column id="423" parent="295" name="company_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>935</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="435" parent="296" name="promotional_content">
+    <column id="424" parent="295" name="promotional_content">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>935</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="436" parent="296" name="password">
+    <column id="425" parent="295" name="password">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>935</StateNumber>
       <StoredType>varchar(128)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="437" parent="296" name="manager">
+    <column id="426" parent="295" name="manager">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>1042</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <index id="438" parent="296" name="users_company_pkey">
+    <index id="427" parent="295" name="users_company_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16950</ObjectId>
@@ -5552,7 +5470,7 @@ user_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="439" parent="296" name="users_company_company_id_key">
+    <index id="428" parent="295" name="users_company_company_id_key">
       <ColNames>company_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16952</ObjectId>
@@ -5563,7 +5481,7 @@ user_id</ColNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="440" parent="296" name="users_company_company_id_25c78d27_like">
+    <index id="429" parent="295" name="users_company_company_id_25c78d27_like">
       <ColNames>company_id</ColNames>
       <ObjectId>16993</ObjectId>
       <StateNumber>935</StateNumber>
@@ -5575,20 +5493,20 @@ user_id</ColNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="441" parent="296" name="users_company_pkey">
+    <key id="430" parent="295" name="users_company_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16951</ObjectId>
       <Primary>1</Primary>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16950</UnderlyingIndexId>
     </key>
-    <key id="442" parent="296" name="users_company_company_id_key">
+    <key id="431" parent="295" name="users_company_company_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16953</ObjectId>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16952</UnderlyingIndexId>
     </key>
-    <column id="443" parent="297" name="id">
+    <column id="432" parent="296" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5597,21 +5515,21 @@ user_id</ColNames>
       <SequenceId>16954</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="444" parent="297" name="company_id">
+    <column id="433" parent="296" name="company_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>935</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="445" parent="297" name="customuser_id">
+    <column id="434" parent="296" name="customuser_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>935</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="446" parent="297" name="users_company_applic_company_id_548694bc_fk_users_com">
+    <foreign-key id="435" parent="296" name="users_company_applic_company_id_548694bc_fk_users_com">
       <ColNames>company_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5620,7 +5538,7 @@ user_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16945</RefTableId>
     </foreign-key>
-    <foreign-key id="447" parent="297" name="users_company_applic_customuser_id_f26ad382_fk_users_cus">
+    <foreign-key id="436" parent="296" name="users_company_applic_customuser_id_f26ad382_fk_users_cus">
       <ColNames>customuser_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -5629,7 +5547,7 @@ user_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16824</RefTableId>
     </foreign-key>
-    <index id="448" parent="297" name="users_company_applicants_pkey">
+    <index id="437" parent="296" name="users_company_applicants_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16958</ObjectId>
@@ -5638,7 +5556,7 @@ user_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="449" parent="297" name="users_company_applicants_company_id_customuser_id_5c571660_uniq">
+    <index id="438" parent="296" name="users_company_applicants_company_id_customuser_id_5c571660_uniq">
       <ColNames>company_id
 customuser_id</ColNames>
       <ObjectId>16994</ObjectId>
@@ -5646,29 +5564,111 @@ customuser_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="450" parent="297" name="users_company_applicants_company_id_548694bc">
+    <index id="439" parent="296" name="users_company_applicants_company_id_548694bc">
       <ColNames>company_id</ColNames>
       <ObjectId>17006</ObjectId>
       <StateNumber>935</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="451" parent="297" name="users_company_applicants_customuser_id_f26ad382">
+    <index id="440" parent="296" name="users_company_applicants_customuser_id_f26ad382">
       <ColNames>customuser_id</ColNames>
       <ObjectId>17007</ObjectId>
       <StateNumber>935</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="452" parent="297" name="users_company_applicants_pkey">
+    <key id="441" parent="296" name="users_company_applicants_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16959</ObjectId>
       <Primary>1</Primary>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16958</UnderlyingIndexId>
     </key>
-    <key id="453" parent="297" name="users_company_applicants_company_id_customuser_id_5c571660_uniq">
+    <key id="442" parent="296" name="users_company_applicants_company_id_customuser_id_5c571660_uniq">
       <ObjectId>16995</ObjectId>
       <StateNumber>935</StateNumber>
       <UnderlyingIndexId>16994</UnderlyingIndexId>
+    </key>
+    <column id="443" parent="297" name="id">
+      <IdentityKind>by-default</IdentityKind>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1094</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <SequenceId>17086</SequenceId>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="444" parent="297" name="company_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1094</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="445" parent="297" name="customuser_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>1094</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="446" parent="297" name="users_company_comple_company_id_fe79847d_fk_users_com">
+      <ColNames>company_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ObjectId>17094</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16945</RefTableId>
+    </foreign-key>
+    <foreign-key id="447" parent="297" name="users_company_comple_customuser_id_784514e6_fk_users_cus">
+      <ColNames>customuser_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ObjectId>17099</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16824</RefTableId>
+    </foreign-key>
+    <index id="448" parent="297" name="users_company_completed_consultations_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17090</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1094</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="449" parent="297" name="users_company_completed__company_id_customuser_id_ea771929_uniq">
+      <ColNames>company_id
+customuser_id</ColNames>
+      <ObjectId>17092</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="450" parent="297" name="users_company_completed_consultations_company_id_fe79847d">
+      <ColNames>company_id</ColNames>
+      <ObjectId>17104</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="451" parent="297" name="users_company_completed_consultations_customuser_id_784514e6">
+      <ColNames>customuser_id</ColNames>
+      <ObjectId>17105</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="452" parent="297" name="users_company_completed_consultations_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17091</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1094</StateNumber>
+      <UnderlyingIndexId>17090</UnderlyingIndexId>
+    </key>
+    <key id="453" parent="297" name="users_company_completed__company_id_customuser_id_ea771929_uniq">
+      <ObjectId>17093</ObjectId>
+      <StateNumber>1094</StateNumber>
+      <UnderlyingIndexId>17092</UnderlyingIndexId>
     </key>
     <column id="454" parent="298" name="id">
       <IdentityKind>by-default</IdentityKind>

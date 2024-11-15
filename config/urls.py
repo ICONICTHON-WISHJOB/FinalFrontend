@@ -23,6 +23,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from .views import AllDataView
+
 schema_view = get_schema_view(
    openapi.Info(
       title="WishJob API",
@@ -50,6 +52,10 @@ urlpatterns = [
     path('company/', include('company.urls')),
 
     path('api-token-auth/', obtain_auth_token),
+
+    path('all/json/', AllDataView.as_view(), name='all_json'),
+
+
 ]
 
 
