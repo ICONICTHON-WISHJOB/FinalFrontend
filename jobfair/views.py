@@ -133,7 +133,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-
+openai.api_key=os.getenv('GPT-KEY')
 
 class RecommendView(APIView):
     def post(self, request):
@@ -155,6 +155,7 @@ class RecommendView(APIView):
 
         # Make a request to the OpenAI API
         try:
+            user.recommend = prompt
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[{'role': 'user', 'content': prompt}],
@@ -168,5 +169,5 @@ class RecommendView(APIView):
         except Exception as e:
             return Response({"error": "Failed to connect to OpenAI API", "details": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        # Return the recommended category as a JSON response
+
         return JsonResponse({"recommended_category": category}, status=status.HTTP_200_OK)

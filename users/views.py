@@ -7,7 +7,6 @@ from .serializers import SignupSerializer, LoginRequestSerializer
 from .models import CustomUser, Company
 from drf_yasg.utils import swagger_auto_schema
 
-
 class SignupView(APIView):
     @swagger_auto_schema(request_body=SignupSerializer)
     def post(self, request):
