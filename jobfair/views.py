@@ -125,3 +125,48 @@ class BoothPossibleNowView(APIView):
         }
 
         return Response(response_data, status=status.HTTP_200_OK)
+
+import openai
+import os
+from django.http import JsonResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+
+
+class RecommendView(APIView):
+    def post(self, request):
+        # Get the logged-in user's email from the session
+        email = request.session.get('email')
+
+        if not email:
+            return Response({"error": "User not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # Get the user's self_introduction from CustomUser model
+        try:
+            user = CustomUser.objects.get(email=email)
+            self_introduction = user.self_introduction
+        except CustomUser.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Define prompt for GPT based on self_introduction
+        prompt = f"Analyze the following self-introduction and determine if it best matches one of these categories: 기술연구, 채용상담관, or 스타트업.\n\nSelf-introduction:\n{self_introduction}\n\nRespond with one of the categories only."
+
+        # Make a request to the OpenAI API
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{'role': 'user', 'content': prompt}],
+                max_tokens=10,
+                n=1,
+                stop=None,
+                temperature=0.5,
+            )
+            # Extract the response text
+            category = response['choices'][0]['message']['content'].strip()
+        except Exception as e:
+            return Response({"error": "Failed to connect to OpenAI API", "details": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # Return the recommended category as a JSON response
+        return JsonResponse({"recommended_category": category}, status=status.HTTP_200_OK)
