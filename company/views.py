@@ -174,3 +174,59 @@ class ConsultationDoneView(APIView):
                 "company_name": company.name,
             }
         }, status=status.HTTP_200_OK)
+
+
+
+class ConsultDeleteView(APIView):
+        @swagger_auto_schema(
+            operation_description="Deletes a user from the company's booth queue",
+            manual_parameters=[
+                openapi.Parameter(
+                    'id', openapi.IN_PATH, description="User ID to delete from queue", type=openapi.TYPE_STRING
+                )
+            ],
+            responses={
+                200: openapi.Response(
+                    description="User removed from queue successfully",
+                    examples={
+                        "application/json": {
+                            "message": "User removed from queue successfully"
+                        }
+                    }
+                ),
+                404: openapi.Response(
+                    description="Not found",
+                    examples={
+                        "application/json": {"error": "User or Company not found"}
+                    }
+                ),
+            }
+        )
+        def post(self, request, id):
+            # Step 1: Retrieve the company_id from session
+            company_id = request.session.get('id')
+            if not company_id:
+                return Response({"error": "Company ID not found in session"}, status=status.HTTP_404_NOT_FOUND)
+
+            # Step 2: Find the company
+            try:
+                company = Company.objects.get(company_id=company_id)
+            except Company.DoesNotExist:
+                return Response({"error": "Invalid company_id"}, status=status.HTTP_404_NOT_FOUND)
+
+            # Step 3: Get the associated booth
+            booth = company.booths.first()
+            if not booth:
+                return Response({"error": "Booth not found for this company"}, status=status.HTTP_404_NOT_FOUND)
+
+            # Step 4: Find the user in the queue and remove them
+            try:
+                user = booth.queue.get(id=id)
+            except CustomUser.DoesNotExist:
+                return Response({"error": "User not found in queue"}, status=status.HTTP_404_NOT_FOUND)
+
+            booth.queue.remove(user)
+
+            return Response({
+                "message": "User removed from queue successfully"
+            }, status=status.HTTP_200_OK)
