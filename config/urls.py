@@ -23,7 +23,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from .views import AllDataView
+from django.urls import path
+from config.views import CustomUserDetailView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -53,8 +54,7 @@ urlpatterns = [
 
     path('api-token-auth/', obtain_auth_token),
 
-    path('all/json/', AllDataView.as_view(), name='all_json'),
-
+    path('user/json/<int:user_id>/', CustomUserDetailView.as_view(), name='user_json'),
 
 ]
 
