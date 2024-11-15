@@ -109,3 +109,68 @@ class WaitListView(APIView):
         }
 
         return Response(response_data, status=status.HTTP_200_OK)
+
+
+class ConsultationDoneView(APIView):
+    @swagger_auto_schema(
+        operation_description="Marks a consultation as completed for a user in the booth's queue and updates both the company and user consultation records.",
+
+        responses={
+            200: openapi.Response(
+                description="Consultation completed successfully",
+                examples={
+                    "application/json": {
+                        "message": "Consultation completed successfully",
+                        "consulted_user": {
+                            "user_id": "test@example.com",
+                            "full_name": "김도현"
+                        },
+                        "company": {
+                            "company_id": "A12@company.com",
+                            "company_name": "Company A"
+                        }
+                    }
+                }
+            ),
+            404: openapi.Response(
+                description="Not found",
+                examples={
+                    "application/json": {"error": "Invalid company_id or User not found in queue"}
+                }
+            ),
+        }
+    )
+    def post(self, request, id):
+        company_id = request.session['id']
+
+        try:
+            company = Company.objects.get(company_id=company_id)
+            print(company)
+        except Company.DoesNotExist:
+            return Response({"error": "Invalid company_id"}, status=status.HTTP_404_NOT_FOUND)
+        booth = company.booths.first()
+        if not booth:
+            return Response({"error": "Booth not found for this company"}, status=status.HTTP_404_NOT_FOUND)
+        try:
+            user = booth.queue.get(id=id)
+        except CustomUser.DoesNotExist:
+            return Response({"error": "User not found in queue"}, status=status.HTTP_404_NOT_FOUND)
+
+        company.completed_consultations.add(user)
+
+        booth.queue.remove(user)
+
+        company.save()
+        user.save()
+
+        return Response({
+            "message": "Consultation completed successfully",
+            "consulted_user": {
+                "user_id": user.email,
+                "full_name": user.full_name,
+            },
+            "company": {
+                "company_id": company.company_id,
+                "company_name": company.name,
+            }
+        }, status=status.HTTP_200_OK)
