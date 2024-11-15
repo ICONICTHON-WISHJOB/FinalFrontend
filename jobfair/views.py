@@ -133,7 +133,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-openai.api_key=os.getenv('GPT-KEY')
+openai.api_key=os.getenv('GPT_KEY')
 
 class RecommendView(APIView):
     def post(self, request):
